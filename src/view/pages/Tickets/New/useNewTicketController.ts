@@ -34,9 +34,9 @@ export function useNewTicketController() {
 
   const handleSubmit = hookFormSubmit(async (data) => {
     try {
-      await mutateAsync(data);
+      const { id } = await mutateAsync(data);
       toast.success('Ingresso criado com sucesso!');
-      navigate('/tickets');
+      navigate(`/tickets/${id}`);
     } catch (error) {
       const message =
         isAxiosError<{ error: string; message: string }>(error) &&

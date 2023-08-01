@@ -115,5 +115,6 @@ export function useValidateTicketController() {
     isAlertDialogOpen,
     setIsAlertDialogOpen,
     isLoading,
+    setSelectedCamera,
   };
 }

@@ -16,6 +16,7 @@ export default function ValidateTicket() {
     isAlertDialogOpen,
     setIsAlertDialogOpen,
     isLoading,
+    setSelectedCamera,
   } = useValidateTicketController();
 
   return (
@@ -42,7 +43,7 @@ export default function ValidateTicket() {
             <div
               id='reader'
               className={twMerge(
-                'aspect-square max-h-full w-auto max-w-full overflow-hidden rounded',
+                'aspect-square max-h-full w-auto max-w-full overflow-hidden rounded border-none',
                 isScanning ? '' : 'hidden',
               )}
             ></div>
@@ -50,6 +51,7 @@ export default function ValidateTicket() {
               placeholder='Camera'
               name='camera'
               value={selectedCamera}
+              onChange={(ev) => setSelectedCamera(ev.target.value)}
               disabled={isScanning}
             >
               {cameras?.map((camera) => (
