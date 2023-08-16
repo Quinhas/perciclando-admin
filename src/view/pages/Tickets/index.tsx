@@ -30,6 +30,9 @@ export default function Tickets() {
     <div className='flex h-full w-full min-w-[17rem] flex-grow flex-col gap-5 rounded-lg bg-white p-6 shadow dark:bg-gray-800'>
       <div>
         <h2 className='text-3xl font-bold'>Ingressos</h2>
+        <p className='text-sm font-light text-gray-500'>
+          {tickets.length} vendidos
+        </p>
       </div>
       <div className='flex flex-1'>
         <div className='relative w-full overflow-x-auto'>
@@ -79,7 +82,7 @@ export default function Tickets() {
                   <td className='px-6 py-4'>{ticket.createdBy?.username}</td>
                   <td className='px-6 py-4'>
                     {ticket.validatedAt ? (
-                      <Check className='mx-auto text-green-500 dark:text-green-300' />
+                      <Check className='text-green-500 dark:text-green-300' />
                     ) : (
                       '-'
                     )}

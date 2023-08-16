@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 import { ticketsService } from '../../../app/services/ticketsService';
 
 export function useTicketsController() {
@@ -7,5 +8,9 @@ export function useTicketsController() {
     queryFn: async () => ticketsService.getAll(),
   });
 
-  return { tickets: data, isError, isFetching };
+  const tickets = useMemo(() => {
+    return data?.sort((a, b) => a.number - b.number);
+  }, [data]);
+
+  return { tickets, isError, isFetching };
 }
